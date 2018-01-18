@@ -7,7 +7,7 @@ class Products {
         product_data_1.ProductData.map((elem) => ProductDataMap.set(elem.id, elem));
         router.get("/api/products", (req, res, next) => {
             const filterParam = req.query.search;
-            if (filterParam === undefined) {
+            if (!filterParam) {
                 return res.json(product_data_1.ProductData);
             }
             const filteredResult = [...ProductDataMap.values()]

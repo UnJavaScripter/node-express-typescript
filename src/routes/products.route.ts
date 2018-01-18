@@ -11,7 +11,7 @@ export class Products {
     router.get("/api/products", (req: Request, res: Response, next: NextFunction) => {
       const filterParam = req.query.search;
       // Regular bulk request
-      if (filterParam === undefined) {
+      if (!filterParam) {
         return res.json(ProductData)
       }
       
