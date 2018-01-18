@@ -6,7 +6,8 @@
         "preserveConstEnums": true,
         "sourceMap": false,
         "typeRoots": ["node_modules/@types"],
-        "outDir": "server"
+        "outDir": "server",
+        "target": "es6"
     },
     "include": [
         "./src"

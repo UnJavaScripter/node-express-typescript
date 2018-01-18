@@ -1,32 +1,29 @@
 "use strict";
-exports.__esModule = true;
-var express = require("express");
-var config_1 = require("./config");
-var login_1 = require("./login");
-var chancletas_1 = require("./chancletas");
-var Server = (function () {
-    function Server(port) {
-        if (port === void 0) { port = 8008; }
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const config_1 = require("./config");
+const login_route_1 = require("./routes/login.route");
+const products_route_1 = require("./routes/products.route");
+class Server {
+    constructor(port = 8008) {
         this.app = express();
         this.port = port;
         this.appConfig();
         this.setEndPoints();
     }
-    Server.prototype.appConfig = function () {
+    appConfig() {
         config_1.Config.set(this.app);
-    };
-    Server.prototype.setEndPoints = function () {
-        var router = express.Router();
+    }
+    setEndPoints() {
+        const router = express.Router();
         this.app.use(router);
-        login_1.Login.endPoint(router);
-        chancletas_1.Chancletas.endPoint(router);
-    };
-    Server.prototype.start = function () {
-        var _this = this;
-        this.app.listen(this.port, function () {
-            console.log("API running on port " + _this.port);
+        login_route_1.Login.endPoint(router);
+        products_route_1.Products.endPoint(router);
+    }
+    start() {
+        this.app.listen(this.port, () => {
+            console.log(`API running on port ${this.port}`);
         });
-    };
-    return Server;
-}());
+    }
+}
 exports.Server = Server;

@@ -1,7 +1,9 @@
 import * as express from "express";
 import { Config } from './config';
-import { Login } from './login';
-import { Chancletas } from './chancletas';
+
+// Routes
+import { Login } from './routes/login.route';
+import { Products } from './routes/products.route';
 
 export class Server {
   public app:any;
@@ -26,7 +28,7 @@ export class Server {
     this.app.use(router);
 
     Login.endPoint(router);
-    Chancletas.endPoint(router);
+    Products.endPoint(router);
   }
 
   public start() {

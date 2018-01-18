@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 
-export class Login{
+export class Login {
   public static endPoint(router: Router) {
     router.post("/api/login", (req: Request, res: Response, next: NextFunction) => {
       res.json({

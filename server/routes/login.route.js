@@ -1,10 +1,8 @@
 "use strict";
-exports.__esModule = true;
-var Login = (function () {
-    function Login() {
-    }
-    Login.endPoint = function (router) {
-        router.post("/api/login", function (req, res, next) {
+Object.defineProperty(exports, "__esModule", { value: true });
+class Login {
+    static endPoint(router) {
+        router.post("/api/login", (req, res, next) => {
             res.json({
                 "user_name": "dr_acula",
                 "first_name": "James",
@@ -12,7 +10,6 @@ var Login = (function () {
                 "user_id": "i87fd98sd0971kjl0s"
             });
         });
-    };
-    return Login;
-}());
+    }
+}
 exports.Login = Login;
